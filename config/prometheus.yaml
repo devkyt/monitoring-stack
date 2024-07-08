@@ -21,8 +21,4 @@ scrape_configs:
       - targets:
           - otel:8889
 
-  - job_name: docker
-    static_configs:
-      - targets:
-          - localhost:9323
   

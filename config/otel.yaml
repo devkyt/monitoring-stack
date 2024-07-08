@@ -6,7 +6,7 @@ receivers:
 
   hostmetrics:
     root_path: /hostfs
-    collection_interval: 30s
+    collection_interval: 120s
     scrapers:
       cpu:
       disk:

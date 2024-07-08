@@ -70,8 +70,6 @@ services:
     image: otel/opentelemetry-collector-contrib:0.104.0
     <<: *common-conf
     command: ["--config=/etc/otel-collector-config.yaml"]
-    environment:
-      OTEL_RESOURCE_ATTRIBUTES: "node=main"
     volumes:
       - "./config/otel.yaml:/etc/otel-collector-config.yaml:ro"
       - "/:/hostfs:ro"
