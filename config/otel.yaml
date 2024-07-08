@@ -6,7 +6,7 @@ receivers:
 
   hostmetrics:
     root_path: /hostfs
-    collection_interval: 60s
+    collection_interval: 30s
     scrapers:
       cpu:
       disk:
@@ -27,15 +27,22 @@ exporters:
 
 processors:
   batch:
-  resourcedetection/docker:
-    detectors: [env]
+  metricstransform:
+    transforms:
+      - include: ^system\.
+        match_type: regexp
+        action: update
+        operations:
+          - action: add_label
+            new_label: node
+            new_value: main
 
 
 service:
   pipelines:
     metrics:
       receivers: [hostmetrics]
-      processors: [batch, resourcedetection/docker]
+      processors: [metricstransform, batch]
       exporters: [prometheus]
     # logs:
     #   receivers: [otlphttp]
