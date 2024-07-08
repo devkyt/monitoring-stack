@@ -35,7 +35,13 @@ processors:
         operations:
           - action: add_label
             new_label: node
-            new_value: main
+            new_value: ${env:NODE_NAME}
+          - action: add_label
+            new_label: ip
+            new_value: ${env:NODE_IP}
+          - action: add_label
+            new_label: access
+            new_value: ${env:NODE_ACCESS}
 
 
 service:

@@ -73,6 +73,10 @@ services:
     volumes:
       - "./config/otel.yaml:/etc/otel-collector-config.yaml:ro"
       - "/:/hostfs:ro"
+    environment: 
+      NODE_NAME: 'central'
+      NODE_IP: '255.255.255.255'
+      NODE_ACCESS: 'internal'
     ports:
       - name: health-check
         published: 13133
