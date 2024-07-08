@@ -17,40 +17,40 @@ receivers:
       paging:
       processes:
   
-  docker_stats:
-    endpoint: unix:///var/run/docker.sock
-    collection_interval: 20s
-    timeout: 20s
-    api_version: 1.25
-    metrics:  
-      container.cpu.usage.total: 
-        enabled: true
-      container.cpu.utilization:
-        enabled: true
-      container.memory.percent:
-        enabled: true
-      container.memory.usage.limit:
-        enabled: true
-      container.memory.usage.total:
-        enabled: true
-      container.cpu.usage.system:
-        enabled: true
-      container.cpu.limit:
-        enabled: true
-      container.cpu.usage.percpu:
-        enabled: true
-      container.network.io.usage.rx_bytes:
-        enabled: true
-      container.network.io.usage.rx_dropped:
-        enabled: true
-      container.network.io.usage.tx_bytes:
-        enabled: true
-      container.network.io.usage.tx_dropped:
-        enabled: true
-      container.restarts:
-        enabled: true
-      container.uptime:
-        enabled: true
+  # docker_stats:
+  #   endpoint: unix:///var/run/docker.sock
+  #   collection_interval: 20s
+  #   timeout: 20s
+  #   api_version: 1.25
+  #   metrics:  
+  #     container.cpu.usage.total: 
+  #       enabled: true
+  #     container.cpu.utilization:
+  #       enabled: true
+  #     container.memory.percent:
+  #       enabled: true
+  #     container.memory.usage.limit:
+  #       enabled: true
+  #     container.memory.usage.total:
+  #       enabled: true
+  #     container.cpu.usage.system:
+  #       enabled: true
+  #     container.cpu.limit:
+  #       enabled: true
+  #     container.cpu.usage.percpu:
+  #       enabled: true
+  #     container.network.io.usage.rx_bytes:
+  #       enabled: true
+  #     container.network.io.usage.rx_dropped:
+  #       enabled: true
+  #     container.network.io.usage.tx_bytes:
+  #       enabled: true
+  #     container.network.io.usage.tx_dropped:
+  #       enabled: true
+  #     container.restarts:
+  #       enabled: true
+  #     container.uptime:
+  #       enabled: true
 
 
       
@@ -68,7 +68,7 @@ processors:
 service:
   pipelines:
     metrics:
-      receivers: [hostmetrics, docker_stats]
+      receivers: [hostmetrics]
       processors: [batch]
       exporters: [prometheus]
     # logs:

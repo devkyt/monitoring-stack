@@ -69,9 +69,10 @@ services:
     container_name: otel
     image: otel/opentelemetry-collector-contrib:0.104.0
     <<: *common-conf
+    command: ["--config=/etc/otel-collector-config.yaml"]
     volumes:
       - "./config/otel.yaml:/etc/otel-collector-config.yaml:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      # - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/:/hostfs:ro"
     ports:
       - name: health-check
