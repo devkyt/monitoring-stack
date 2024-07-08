@@ -2,8 +2,10 @@ receivers:
   otlp:
     protocols:
       grpc:
+      http:
 
   hostmetrics:
+    root_path: /hostfs
     collection_interval: 60s
     scrapers:
       cpu:
