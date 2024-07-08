@@ -27,13 +27,15 @@ exporters:
 
 processors:
   batch:
+  resourcedetection:
+    detectors: [env]
 
 
 service:
   pipelines:
     metrics:
       receivers: [hostmetrics]
-      processors: [batch]
+      processors: [batch, resourcedetection]
       exporters: [prometheus]
     # logs:
     #   receivers: [otlphttp]
