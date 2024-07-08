@@ -88,7 +88,7 @@ services:
         published: 55679
         target: 55679
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:13133"]
+      test: ["CMD-SHELL", "curl -f http://localhost:13133/healthy"]
       interval: 20s
       timeout: 10s
       retries: 5

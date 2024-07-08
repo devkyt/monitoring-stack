@@ -73,3 +73,9 @@ service:
     #   receivers: [otlphttp]
     #   processors: [batch]
     #   exporters: [loki]
+
+extensions:
+  health_check:
+  health_check/1:
+    endpoint: "localhost:13133"
+    path: "/healthy"
