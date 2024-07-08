@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 10s
+
+rule_files:
+  - rules.yaml
+
+alerting:
+  alertmanagers:
+   - static_configs:
+     - targets:
+        - alertmanager:9093
+
+scrape_configs:
+  - job_name: promethes
+    static_configs:
+      - targets:
+          - prometheus:9090
+
+  - job_name: otel
+    static_configs:
+      - targets:
+          - otel:8889
+  
