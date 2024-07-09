@@ -14,6 +14,9 @@ services:
     container_name: prometheus
     image: prom/prometheus:v2.45.6
     <<: *common-conf
+    command:
+      - --storage.tsdb.retention.time=180d
+      - --storage.tsdb.retention.size=100GB
     ports:
       - name: web
         published: 9090
