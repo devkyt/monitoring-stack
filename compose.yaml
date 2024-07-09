@@ -15,6 +15,7 @@ services:
     image: prom/prometheus:v2.45.6
     <<: *common-conf
     command:
+      - --config.file=/etc/prometheus/prometheus.yml
       - --storage.tsdb.retention.time=180d
       - --storage.tsdb.retention.size=100GB
     ports:
