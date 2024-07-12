@@ -89,7 +89,7 @@ services:
         published: 3100
         target: 3100
     volumes:
-      - "./loki/retention-config.yaml:/etc/loki/retention-config.yaml"
+      - "./config/loki/retention-config.yaml:/etc/loki/retention-config.yaml"
  
   otel:
     container_name: otel
@@ -100,7 +100,7 @@ services:
       NODE_IP: '255.255.255.255'
       NODE_ACCESS: 'internal'
     command: 
-      - --config=/etc/otel-collector-config.yaml"
+      - --config=/etc/otel-collector-config.yaml
     ports:
       - name: health-check
         published: 13133
