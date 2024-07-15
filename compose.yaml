@@ -82,6 +82,7 @@ services:
   loki:
     container_name: loki
     image: grafana/loki:main-08615bf
+    <<: *common-conf
     command: 
       - --config.file=/etc/loki/retention-config.yaml
     ports:
